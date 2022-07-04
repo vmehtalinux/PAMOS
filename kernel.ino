@@ -1,4 +1,4 @@
-String menuItems[] = {"System Info", "Graphics Test", "ITEM 3", "ITEM 4", "ITEM 5", "ITEM 6"};
+String menuItems[] = {"System Info", "Graphics Test", "RedLED", "BlueLED", "GreenLED", "RGB-Nano"};
 
 int readKey;
 int savedDistance = 0;
@@ -47,7 +47,11 @@ byte menuCursor[8] = {
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 
 void setup() {
-
+  pinMode(23, OUTPUT);
+  pinMode(25, OUTPUT);
+  pinMode(27, OUTPUT);
+  pinMode(14, OUTPUT);
+  digitalWrite(14, HIGH); 
   Serial.begin(9600);
   
   lcd.begin(16, 2);
@@ -244,9 +248,9 @@ void menuItem1() {
 
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Arduino Mega2560");
+  lcd.print("Pamos-Beta v.2.1");
   lcd.setCursor(0,1);
-  lcd.print("7503330383435150");
+    lcd.print("VID:2341PID:0042");
 
   while (activeButton == 0) {
     int button;
@@ -270,8 +274,137 @@ void menuItem2() { // Function executes when you select the 2nd item from main m
 
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("SubMenu 2");
-
+  lcd.print("1000000000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("0100000000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("0010000000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("0001000000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00001000000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000100000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000010000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000001000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000100000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000010000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000001000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000100000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000010000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000001000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000100");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000010");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("1000000000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("0100000000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("0010000000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("0001000000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("00001000000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("00000100000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("00000010000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("00000001000000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("00000000100000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("00000000010000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("00000000001000000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("00000000000100000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("00000000000010000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("00000000000001000");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("00000000000000100");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.setCursor(0, 1);
+  lcd.print("00000000000000010");
+  delay(200);
+  lcd.clear();
+  lcd.print("00000000000000000");
+  lcd.clear();
+  lcd.setCursor(0, 1);
   while (activeButton == 0) {
     int button;
     readKey = analogRead(0);
@@ -294,8 +427,8 @@ void menuItem3() { // Function executes when you select the 3rd item from main m
 
   lcd.clear();
   lcd.setCursor(3, 0);
-  lcd.print("Sub Menu 3");
-
+  digitalWrite(27, HIGH); 
+  lcd.print("RedLED ON");
   while (activeButton == 0) {
     int button;
     readKey = analogRead(0);
@@ -318,8 +451,9 @@ void menuItem4() { // Function executes when you select the 4th item from main m
 
   lcd.clear();
   lcd.setCursor(3, 0);
-  lcd.print("Sub Menu 4");
-
+   
+  digitalWrite(23, HIGH);
+  lcd.print("BlueLED ON");
   while (activeButton == 0) {
     int button;
     readKey = analogRead(0);
@@ -342,8 +476,8 @@ void menuItem5() { // Function executes when you select the 5th item from main m
 
   lcd.clear();
   lcd.setCursor(3, 0);
-  lcd.print("Sub Menu 5");
-
+  digitalWrite(25, HIGH); 
+  lcd.print("GreenLED ON");
   while (activeButton == 0) {
     int button;
     readKey = analogRead(0);
@@ -365,9 +499,9 @@ void menuItem6() { // Function executes when you select the 6th item from main m
   int activeButton = 0;
 
   lcd.clear();
-  lcd.setCursor(3, 0);
-  lcd.print("Sub Menu 6");
-
+  lcd.setCursor(0, 0);
+  lcd.print("RGB-Nano Booted");
+  digitalWrite(14, LOW); 
   while (activeButton == 0) {
     int button;
     readKey = analogRead(0);
